@@ -1,0 +1,3 @@
+#EXTM3U url-tvg="http://www.teleguide.info/download/new3/jtv.zip" m3uautoload=1 cache=2000{% load replace %}{% for item in playlist.items %}
+#EXTINF:-1 tvg-name="{{ item.tvg_name }}" tvg-logo="{{ item.tvg_logo }}" deinterlace={{item.deinterlace}}{% if item.time_shift %} tvg-shift={{ item.time_shift }}{% endif %}{% if item.mono %} mono={{ item.mono }}{% endif %}{% if item.audiotrack %} audio-track={{ item.audiotrack }}{% endif %}{% if forloop.first %} group-title="{{ item.group }}"{% endif %},{{ item.name }}
+{{ item.source }}{% endfor %}
